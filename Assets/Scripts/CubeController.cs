@@ -6,20 +6,14 @@ using UnityEngine;
 public class CubeController : MonoBehaviour
 {
     public float targetAltitude = 10;
-    //public float targetDistance = 1;
     public PIDController altitudePID;
-    //public PIDController distancePID;
 
     float maxThrust;
     float maxSpeed;
 
-    //bool enoughWaypoints = false;
-
-    GameObject curWaypoint;
     private WaypointManager wM;
     CubeThruster cT;
     CubeMover cM;
-    //RaycastObstacleSensor rOS;
     OAAgent oAAgent;
 
     void Start()
@@ -27,7 +21,6 @@ public class CubeController : MonoBehaviour
         cT = GetComponent<CubeThruster>();
         cM = GetComponent<CubeMover>();
         wM = GetComponent<WaypointManager>();
-        //rOS = GetComponentInChildren<RaycastObstacleSensor>();
         oAAgent = GetComponent<OAAgent>();
 
         maxThrust = cT.maxThrust;
@@ -37,13 +30,6 @@ public class CubeController : MonoBehaviour
 
     void Update()
     {
-        /*
-        if (wM.waypoints.Count == 10)
-        {
-            enoughWaypoints = true;
-        }
-        */
-
         //Altitute Control ----------------------------------------------------
         float curAltitude = transform.position.y;
 
@@ -63,57 +49,6 @@ public class CubeController : MonoBehaviour
         cT.thrust = curAltValue;
         //---------------------------------------------------------------------
 
-        //Distance Control-----------------------------------------------------
-        /*
-        if (wM.waypoints.Count > 0)
-        {
-            if (enoughWaypoints)
-            {
-            
-                curWaypoint = wM.waypoints.First();
-                oAAgent.curWaypoint = curWaypoint;
-
-                //Aktuelle Distanz und Richtung vom Würfel zum nächsten Wegpunkt wird berechnet
-                float curWaypointDist = Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), new Vector3(curWaypoint.transform.position.x, 0, curWaypoint.transform.position.z));
-                Vector3 curWaypointDir = (transform.position - curWaypoint.transform.position).normalized;
-
-                float disErr = targetDistance - curWaypointDist;
-
-                float curDisValue = distancePID.Update(disErr);
-
-                //Der Ausgabe-Wert des Distance-PID wird auf den Bereich von +MaxSpeed bis -MaxSpeed (im Moment 5) begrenzt
-                if (curDisValue <= -maxSpeed)
-                {
-                    curDisValue = -maxSpeed;
-                }
-                else if (curDisValue >= maxSpeed)
-                {
-                    curDisValue = maxSpeed;
-                }
-
-                cM.direction = curWaypointDir;
-                cM.speed = curDisValue;
-
-
-
-                if (curWaypointDist <= 0.25 && wM.waypoints.Count != 1)
-                {
-                    wM.waypoints.Remove(curWaypoint);
-                    curWaypoint.SetActive(false);
-                }
-                else if (curWaypointDist > 0.5)
-                {
-                    //Rotiert die Drohne, sodass sie immer ihr Target anschaut
-                    transform.LookAt(new Vector3(curWaypoint.transform.position.x, transform.position.y, curWaypoint.transform.position.z));
-                    //Quaternion toRotation = Quaternion.FromToRotation(transform.right, new Vector3(curWaypointDir.x, 0, curWaypointDir.z));
-                    //transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, 1 * Time.deltaTime);
-                }
-            }
-            //---------------------------------------------------------------------
-            
-        }*/
-
-
-
     }
+
 }

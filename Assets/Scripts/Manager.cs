@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Manager : MonoBehaviour
 {
@@ -18,30 +19,21 @@ public class Manager : MonoBehaviour
     void Awake()
     {
         cube = GameObject.FindGameObjectWithTag("Cube");
-
-        //Würfel wird inaktiv gesetzt, und mit Invoke nach 1 Sekunde wieder aktiv, damit die PIDs erst anfangen zu rechnen, wenn alles andere geladen wurde (sonst schießt der Würfel immer übers Ziel hinaus)
-        //cube.SetActive(false);
-        //follower.SetActive(false);
     }
 
     void Start()
     {
         wM = cube.GetComponent<WaypointManager>();
 
-        //Invoke("StartCube", 1);
-    }
-
-    //Hilfsmethode für Invoke, da mit Invoke keine Parameter übergeben werden können
-    void StartCube()
-    {
-        //cube.SetActive(true);
-        //follower.SetActive(true);
+        GameObject firstWaypoint = Instantiate(waypoint);
+        firstWaypoint.transform.position = new Vector3(Random.Range(-39, 39), 11.5f, Random.Range(-39, 39));
+        wM.waypoints.Add(firstWaypoint);
     }
 
     void Update()
     {
         //Hier wird die Position ermittelt, wo auf dem Boden geklickt wurde. Dann wird an dieser Stelle ein Wegpunkt mit Instantiate erzeugt.
-        /*
+        
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 clickPos = -Vector3.one;
@@ -54,18 +46,18 @@ public class Manager : MonoBehaviour
                 clickPos = hit.point;
             }
 
-            GameObject lastWaypoint = Instantiate(waypoint, new Vector3(clickPos.x, 6.25f, clickPos.z), new Quaternion(0,0,0,0));
+            if(wM.waypoints.Count > 0)
+            {
+                GameObject curWaypoint = wM.waypoints.Last();
+                wM.waypoints.Remove(curWaypoint);
+                Destroy(curWaypoint);
+            }
 
+            GameObject lastWaypoint = Instantiate(waypoint, new Vector3(clickPos.x, 6.25f, clickPos.z), Quaternion.identity);
+            
             //Der erzeugte Wegpunkt wird an letzter Stelle in die Liste im WaypointManager eingefügt
             wM.waypoints.Add(lastWaypoint);
+
         }
-        */
-
-        //if (Input.GetMouseButtonDown(1))
-        //{
-        //    StartCube();
-        //}
-
-
     }
 }

@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
+using System.Linq;
 
 public class OAAgent : Agent
 {
-    public GameObject curWaypoint;
+
+    //public GameObject curWaypoint;
 
     private Vector3 startPosition;
     private Quaternion startRotation;
     private Rigidbody mRigidbody;
     private CubeController cC;
+    public BallPitSpawner bPS;
 
     public float speed;
 
@@ -25,12 +28,15 @@ public class OAAgent : Agent
 
     public override void OnEpisodeBegin()
     {
+        //transform.localPosition = new Vector3(Random.Range(-39, 39), 10, Random.Range(-39, 39));
         transform.localPosition = startPosition;
         transform.localRotation = startRotation;
         mRigidbody.velocity = Vector3.zero;
         mRigidbody.angularVelocity = Vector3.zero;
+        bPS.resetBallPit();
+        bPS.SpawnBallPit(40);
 
-        curWaypoint.transform.localPosition = new Vector3(Random.Range(-39,39), 11.5f, Random.Range(-39,39));
+        //curWaypoint.transform.localPosition = new Vector3(Random.Range(-39, 39), 11.5f, Random.Range(-39, 39));
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -87,6 +93,5 @@ public class OAAgent : Agent
             EndEpisode();
         }
     }
-
 
 }

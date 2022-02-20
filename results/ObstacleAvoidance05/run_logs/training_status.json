@@ -1,0 +1,65 @@
+{
+    "ObstacleAvoidance": {
+        "checkpoints": [
+            {
+                "steps": 399906,
+                "file_path": "results\\ObstacleAvoidance05\\ObstacleAvoidance\\ObstacleAvoidance-399906.onnx",
+                "reward": 1.0,
+                "creation_time": 1645367348.3548992,
+                "auxillary_file_paths": [
+                    "results\\ObstacleAvoidance05\\ObstacleAvoidance\\ObstacleAvoidance-399906.pt"
+                ]
+            },
+            {
+                "steps": 599893,
+                "file_path": "results\\ObstacleAvoidance05\\ObstacleAvoidance\\ObstacleAvoidance-599893.onnx",
+                "reward": 1.0,
+                "creation_time": 1645367514.5389569,
+                "auxillary_file_paths": [
+                    "results\\ObstacleAvoidance05\\ObstacleAvoidance\\ObstacleAvoidance-599893.pt"
+                ]
+            },
+            {
+                "steps": 799941,
+                "file_path": "results\\ObstacleAvoidance05\\ObstacleAvoidance\\ObstacleAvoidance-799941.onnx",
+                "reward": 1.0,
+                "creation_time": 1645367683.923958,
+                "auxillary_file_paths": [
+                    "results\\ObstacleAvoidance05\\ObstacleAvoidance\\ObstacleAvoidance-799941.pt"
+                ]
+            },
+            {
+                "steps": 999965,
+                "file_path": "results\\ObstacleAvoidance05\\ObstacleAvoidance\\ObstacleAvoidance-999965.onnx",
+                "reward": 1.0,
+                "creation_time": 1645367853.3740354,
+                "auxillary_file_paths": [
+                    "results\\ObstacleAvoidance05\\ObstacleAvoidance\\ObstacleAvoidance-999965.pt"
+                ]
+            },
+            {
+                "steps": 1000880,
+                "file_path": "results\\ObstacleAvoidance05\\ObstacleAvoidance\\ObstacleAvoidance-1000880.onnx",
+                "reward": 1.0,
+                "creation_time": 1645367853.6272664,
+                "auxillary_file_paths": [
+                    "results\\ObstacleAvoidance05\\ObstacleAvoidance\\ObstacleAvoidance-1000880.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1000880,
+            "file_path": "results\\ObstacleAvoidance05\\ObstacleAvoidance.onnx",
+            "reward": 1.0,
+            "creation_time": 1645367853.6272664,
+            "auxillary_file_paths": [
+                "results\\ObstacleAvoidance05\\ObstacleAvoidance\\ObstacleAvoidance-1000880.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.10.2+cu113"
+    }
+}
