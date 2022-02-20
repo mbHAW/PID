@@ -1,5 +1,5 @@
 # PID und ML-Agent
-Controlling a Drone in Unity  
+Eine Drone in Unity3D mit Hilfe von PID-Controllern und Reinforcement Learning steuern lassen.  
 
 Fremde Materialien:
 - Samsung Lense Grafik für die Drone in Blender  
