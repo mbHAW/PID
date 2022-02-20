@@ -20,27 +20,28 @@ public class Manager : MonoBehaviour
         cube = GameObject.FindGameObjectWithTag("Cube");
 
         //Würfel wird inaktiv gesetzt, und mit Invoke nach 1 Sekunde wieder aktiv, damit die PIDs erst anfangen zu rechnen, wenn alles andere geladen wurde (sonst schießt der Würfel immer übers Ziel hinaus)
-        cube.SetActive(false);
-        follower.SetActive(false);
+        //cube.SetActive(false);
+        //follower.SetActive(false);
     }
 
     void Start()
     {
         wM = cube.GetComponent<WaypointManager>();
 
-        Invoke("StartCube", 1);
+        //Invoke("StartCube", 1);
     }
 
     //Hilfsmethode für Invoke, da mit Invoke keine Parameter übergeben werden können
     void StartCube()
     {
-        cube.SetActive(true);
-        follower.SetActive(true);
+        //cube.SetActive(true);
+        //follower.SetActive(true);
     }
 
     void Update()
     {
         //Hier wird die Position ermittelt, wo auf dem Boden geklickt wurde. Dann wird an dieser Stelle ein Wegpunkt mit Instantiate erzeugt.
+        /*
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 clickPos = -Vector3.one;
@@ -58,6 +59,7 @@ public class Manager : MonoBehaviour
             //Der erzeugte Wegpunkt wird an letzter Stelle in die Liste im WaypointManager eingefügt
             wM.waypoints.Add(lastWaypoint);
         }
+        */
 
         //if (Input.GetMouseButtonDown(1))
         //{

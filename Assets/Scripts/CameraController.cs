@@ -16,16 +16,16 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         
-
+        /*
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(new Vector3(-0.2f, 0, 0), Space.Self);
         }
         else if(Input.GetKey(KeyCode.D))
-            {
+        {
                 transform.Translate(new Vector3(0.2f, 0, 0), Space.Self);
-            }
-
+        }
+        */
         transform.LookAt(target.transform);
     }
 }

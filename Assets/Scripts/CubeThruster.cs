@@ -34,12 +34,12 @@ public class CubeThruster : MonoBehaviour
     private void Update()
     {
         //die Propeller drehen mit einem Vielfachen der Geschwindigkeit von thrust
-        float rotorspeed = 7 * thrust;
+        //float rotorspeed = 7 * thrust;
 
-        prop1.transform.Rotate(new Vector3(0, 0, rotorspeed));
+        /*prop1.transform.Rotate(new Vector3(0, 0, rotorspeed));
         prop2.transform.Rotate(new Vector3(0, 0, -rotorspeed));
         prop3.transform.Rotate(new Vector3(0, 0, rotorspeed));
-        prop4.transform.Rotate(new Vector3(0, 0, -rotorspeed));
+        prop4.transform.Rotate(new Vector3(0, 0, -rotorspeed));*/
         
     }
 }

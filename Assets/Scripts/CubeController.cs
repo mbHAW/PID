@@ -6,38 +6,43 @@ using UnityEngine;
 public class CubeController : MonoBehaviour
 {
     public float targetAltitude = 10;
-    public float targetDistance = 1;
+    //public float targetDistance = 1;
     public PIDController altitudePID;
-    public PIDController distancePID;
+    //public PIDController distancePID;
 
     float maxThrust;
     float maxSpeed;
 
-    bool enoughWaypoints = false;
+    //bool enoughWaypoints = false;
 
     GameObject curWaypoint;
     private WaypointManager wM;
     CubeThruster cT;
     CubeMover cM;
-    RaycastObstacleSensor rOS;
+    //RaycastObstacleSensor rOS;
+    OAAgent oAAgent;
 
     void Start()
     {
         cT = GetComponent<CubeThruster>();
         cM = GetComponent<CubeMover>();
         wM = GetComponent<WaypointManager>();
-        rOS = GetComponentInChildren<RaycastObstacleSensor>();
+        //rOS = GetComponentInChildren<RaycastObstacleSensor>();
+        oAAgent = GetComponent<OAAgent>();
 
         maxThrust = cT.maxThrust;
         maxSpeed = cM.maxSpeed;
+        oAAgent.speed = maxSpeed;
     }
 
     void Update()
     {
+        /*
         if (wM.waypoints.Count == 10)
         {
             enoughWaypoints = true;
         }
+        */
 
         //Altitute Control ----------------------------------------------------
         float curAltitude = transform.position.y;
@@ -59,11 +64,14 @@ public class CubeController : MonoBehaviour
         //---------------------------------------------------------------------
 
         //Distance Control-----------------------------------------------------
+        /*
         if (wM.waypoints.Count > 0)
         {
             if (enoughWaypoints)
             {
+            
                 curWaypoint = wM.waypoints.First();
+                oAAgent.curWaypoint = curWaypoint;
 
                 //Aktuelle Distanz und Richtung vom Würfel zum nächsten Wegpunkt wird berechnet
                 float curWaypointDist = Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), new Vector3(curWaypoint.transform.position.x, 0, curWaypoint.transform.position.z));
@@ -102,8 +110,8 @@ public class CubeController : MonoBehaviour
                 }
             }
             //---------------------------------------------------------------------
-
-        }
+            
+        }*/
 
 
 

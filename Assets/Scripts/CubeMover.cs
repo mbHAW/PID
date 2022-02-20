@@ -19,14 +19,13 @@ public class CubeMover : MonoBehaviour
     void Start()
     {
         mRigidbody = GetComponent<Rigidbody>();
-
     }
 
     void FixedUpdate()
     {
         //Auf den Würfel wird eine Kraft, welche ihn auf der x und z Achse in Richtung des Wegpunkts schiebt
-        mRigidbody.AddForce(new Vector3(direction.x, 0, direction.z) * speed, ForceMode.Impulse);
+        //mRigidbody.AddForce(new Vector3(direction.x, 0, direction.z) * speed, ForceMode.Impulse);
         //Die Beschleunigung wird auf den Wert von maxSpeed begrenzt
-        mRigidbody.velocity = Vector3.ClampMagnitude(mRigidbody.velocity, maxSpeed);
+        //mRigidbody.velocity = Vector3.ClampMagnitude(mRigidbody.velocity, maxSpeed);
     }
 }
